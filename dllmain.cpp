@@ -33,7 +33,7 @@ HMODULE NCC;
 DWORD WINAPI Handle_Entry3(LPVOID Entry3)
 {
 	using FuncType = void __stdcall(HMODULE, int, int, const char*, void*, void*, unsigned);
-	((FuncType*)Entry3)(NCC, 4, 1, "Cracked by Wolfie", Page_Blank.ptr, Page_Signature.ptr, Page_Signature.size);
+	((FuncType*)Entry3)(NCC, 4, 1, "Cracked by Bot", Page_Blank.ptr, Page_Signature.ptr, Page_Signature.size);
 	return 0;
 }
 
@@ -158,7 +158,7 @@ void* __cdecl Hooked_CreateWindow(const char* idk)
 
 		typedef void* (__thiscall* FnAddTab)(void* Parent, const char* Text);
 		auto AddTab = (FnAddTab)((char*)NCC + 0x66020);
-		auto NewTab = AddTab(Wnd, "luizminerchez info");
+		auto NewTab = AddTab(Wnd, "info");
 		
 		typedef void* (__thiscall* FnUrl)(char* Dat, void* Parent, int x, int y, int w, int h, int u4, LPCSTR szText, const char* szUrl, int a10, int a11);
 		static auto CreateTextElement = (FnUrl)((char*)NCC + 0x64910);
@@ -168,9 +168,9 @@ void* __cdecl Hooked_CreateWindow(const char* idk)
 		CreateIcon(new DWORD[0x90u], NewTab, size - 32, 16 + 32, 64, 64, 2);
 		CreateTextElement(new char[0xBC], NewTab, size - 95/*152*/ + /*(*/93/* * 2)*/, 16 + 64 + 4 + 32 + 8, 0, 0, 5, "------------", "https://nullcoreproject.net", 1, -1);
 		CreateTextElement(new char[0xBC], NewTab, size - 93, 16 + 64 + 12 + 32, 0, 0, 4, "Mistakes Nullified Multiplied", "https://nullcoreproject.net", 0, -1);
-		CreateTextElement(new char[0xBC], NewTab, size - 190, 16 + 64 + 38 + 32, 190 * 2, 14, 4, "Cracked by Wolfie @ https://methamphetamine.solutions", "https://methamphetamine.solutions/", 0, -1);
-		CreateTextElement(new char[0xBC], NewTab, size - 70, 16 + 64 + 56 + 32, 70 * 2, 14, 4, "Click here for funnies", "https://imgur.com/a/2T3kAw4", 0, -1);
-		CreateTextElement(new char[0xBC], NewTab, size - 105, 16 + 64 + 56 + 32 + 18, 105 * 2, 14, 4, "Click here for awesome Discord", "https://discord.gg/cFgBKZj", 0, -1);
+		CreateTextElement(new char[0xBC], NewTab, size - 190, 16 + 64 + 38 + 32, 190 * 2, 14, 4, "Cracked by Bot ", "https://youtu.be/dQw4w9WgXcQ", 0, -1);
+		CreateTextElement(new char[0xBC], NewTab, size - 70, 16 + 64 + 56 + 32, 70 * 2, 14, 4, "Click here for funnies", "https://youtu.be/dQw4w9WgXcQ", 0, -1);
+		CreateTextElement(new char[0xBC], NewTab, size - 105, 16 + 64 + 56 + 32 + 18, 105 * 2, 14, 4, "Click here for awesome Discord", "https://discord.gg/86uZSTxDDw", 0, -1);
 	}
 
 	return Wnd;
